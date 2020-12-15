@@ -54,6 +54,11 @@ export class PayPalScriptService {
         if (config.extraParams) {
             params.push(...config.extraParams);
         }
+      
+        params.push({
+          name: 'disable-funding',
+          value: 'card,credit,bancontact,blik,eps,giropay,ideal,mercadopago,mybank,p24,sepa,sofort,venmo'
+        })
 
         return `https://www.paypal.com/sdk/js${this.getQueryString(params)}`;
     }
